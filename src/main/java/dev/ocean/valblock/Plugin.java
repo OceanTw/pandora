@@ -34,7 +34,7 @@ public class Plugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         
         // Register commands
-        getCommand("valorant").setExecutor(new ValorantCommand());
+        // getCommand("valorant").setExecutor(new ValorantCommand());
         getCommand("vdbg").setExecutor(new ValCommandDebug(abilityManager));
         getCommand("vdbg").setTabCompleter(new ValCommandDebug(abilityManager));
         
