@@ -10,6 +10,11 @@ commands:
     description: Main Valorant command
     aliases: [val, vb, valblock]
     usage: /valorant <subcommand>
+  vdbg:
+    description: ValBlock debugging commands
+    usage: /vdbg <subcommand> [arguments]
+    permission: valblock.debug
+    aliases: [valdebug, valorantdebug]
   
 permissions:
   valorant.admin:
@@ -18,3 +23,14 @@ permissions:
   valorant.player:
     description: Player permissions for Valorant
     default: true
+  valblock.debug:
+    description: Access to ValBlock debug commands
+    default: op
+    children:
+      valblock.debug.ability: true
+      valblock.debug.cooldown: true
+      valblock.debug.charges: true
+      valblock.debug.reload: true
+      valblock.debug.list: true
+      valblock.debug.reset: true
+      valblock.debug.info: true
