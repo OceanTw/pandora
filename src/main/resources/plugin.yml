@@ -4,7 +4,7 @@ main: dev.ocean.valblock.Plugin
 api-version: 1.21
 author: Ocean
 description: Valorant recreation in Minecraft
-
+depend: [ProtocolLib]
 commands:
   valorant:
     description: Main Valorant command
