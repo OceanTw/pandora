@@ -1,8 +1,7 @@
 package dev.ocean.valblock;
 
+import dev.ocean.valblock.command.ValDebugCommand;
 import dev.ocean.valblock.manager.*;
-import dev.ocean.valblock.listener.PlayerListener;
-import dev.ocean.valblock.command.ValorantCommand;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,12 +30,12 @@ public class Plugin extends JavaPlugin {
         this.abilityManager = new AbilityManager();
         
         // Register listeners
-        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+//        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         
         // Register commands
         // getCommand("valorant").setExecutor(new ValorantCommand());
-        getCommand("vdbg").setExecutor(new ValCommandDebug(abilityManager));
-        getCommand("vdbg").setTabCompleter(new ValCommandDebug(abilityManager));
+        getCommand("vdbg").setExecutor(new ValDebugCommand(abilityManager));
+        getCommand("vdbg").setTabCompleter(new ValDebugCommand(abilityManager));
         
         // Load default content
         loadDefaultContent();

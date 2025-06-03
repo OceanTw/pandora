@@ -1,6 +1,7 @@
 plugins {
     java
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm")
 }
 
 group = "dev.ocean.valblock"
@@ -19,12 +20,13 @@ dependencies {
     compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
     
     // Lombok
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
     
     // Additional utilities
     implementation("org.apache.commons:commons-lang3:3.14.0")
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 java {
@@ -43,6 +45,7 @@ tasks {
         
         relocate("org.apache.commons.lang3", "dev.ocean.valblock.libs.commons")
         relocate("com.google.gson", "dev.ocean.valblock.libs.gson")
+        relocate("com.comphenix.protocol", "dev.ocean.valblock.libs.protocol")
     }
     
     processResources {
