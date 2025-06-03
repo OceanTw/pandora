@@ -268,27 +268,14 @@ public class AbilityManager {
      * Load default abilities
      */
     public void loadDefaultAbilities() {
-        // Basic abilities
-        registerAbility(new FlashAbility());
-        registerAbility(new SmokeAbility());
-        registerAbility(new DashAbility());
-        registerAbility(new HealAbility());
-        registerAbility(new RevealAbility());
-        
-        // Signature abilities  
-        registerAbility(new UpdraftAbility());
-        registerAbility(new TailwindAbility());
-        registerAbility(new HealingOrbAbility());
-        registerAbility(new ReconBoltAbility());
-        
-        // Ultimate abilities
-        registerAbility(new BladeStormAbility());
-        registerAbility(new HuntersEdgeAbility());
-        registerAbility(new ResurrectionAbility());
-        registerAbility(new VipersPitAbility());
+        // Only load Jett's abilities
+        registerAbility(new CloudburstAbility());  // Jett's smoke
+        registerAbility(new UpdraftAbility());     // Jett's updraft
+        registerAbility(new TailwindAbility());    // Jett's dash
+        registerAbility(new BladeStormAbility());  // Jett's ultimate
         
         dev.ocean.valblock.Plugin.getInstance().getLogger()
-                .info("Loaded " + abilities.size() + " default abilities");
+                .info("Loaded " + abilities.size() + " Jett abilities");
     }
     
     /**
