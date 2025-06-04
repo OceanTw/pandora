@@ -1,6 +1,6 @@
 plugins {
     java
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.gradleup.shadow") version "9.0.0-beta15"
     kotlin("jvm")
 }
 
@@ -12,13 +12,15 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://oss.sonatype.org/content/groups/public/")
 
-    maven("https://repo.dmulloy2.net/repository/public/")
+    maven("https://repo.codemc.io/repository/maven-releases/")
+
+    maven("https://repo.codemc.io/repository/maven-snapshots/")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
-    compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
-    
+    compileOnly("com.github.retrooper:packetevents-spigot:2.8.0")
+
     // Lombok
     compileOnly("org.projectlombok:lombok:1.18.38")
     annotationProcessor("org.projectlombok:lombok:1.18.38")
@@ -45,7 +47,7 @@ tasks {
         
         relocate("org.apache.commons.lang3", "dev.ocean.valblock.libs.commons")
         relocate("com.google.gson", "dev.ocean.valblock.libs.gson")
-        relocate("com.comphenix.protocol", "dev.ocean.valblock.libs.protocol")
+//        relocate("com.comphenix.protocol", "dev.ocean.valblock.libs.protocol")
     }
     
     processResources {
@@ -58,8 +60,5 @@ tasks {
         )
         
         inputs.properties(props)
-        filesMatching("plugin.yml") {
-            expand(props)
-        }
     }
 }
