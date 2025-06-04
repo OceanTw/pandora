@@ -65,3 +65,6 @@ public class Plugin extends JavaPlugin {
         return instance;
     }
 }
+
+//I don't know how this works but it works.
+//This is good!
