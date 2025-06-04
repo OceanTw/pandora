@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 @Getter
 public class Plugin extends JavaPlugin {
     
+    @Getter
     private static Plugin instance;
     
     private PlayerManager playerManager;
@@ -60,11 +61,5 @@ public class Plugin extends JavaPlugin {
         mapManager.loadDefaultMaps();
         abilityManager.loadDefaultAbilities();
     }
-    
-    public static Plugin getInstance() {
-        return instance;
-    }
-}
 
-//I don't know how this works but it works.
-//This is good!
+}

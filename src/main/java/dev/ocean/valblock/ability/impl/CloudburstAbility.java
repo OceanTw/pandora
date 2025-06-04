@@ -2,10 +2,7 @@ package dev.ocean.valblock.ability.impl;
 
 import dev.ocean.valblock.ability.AbilityType;
 import dev.ocean.valblock.ability.AbstractAbility;
-import org.bukkit.Color;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Particle;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
@@ -94,7 +91,9 @@ public class CloudburstAbility extends AbstractAbility {
 
                     if (offset.length() <= SMOKE_RADIUS) {
                         Location particleLoc = finalCenter.clone().add(offset);
-                        caster.spawnParticle(Particle.DUST, particleLoc, 0, new Particle.DustOptions(Color.WHITE, 10.0f));
+                        for (Player player : Bukkit.getOnlinePlayers()) {
+                            player.spawnParticle(Particle.DUST, particleLoc, 0, new Particle.DustOptions(Color.WHITE, 10.0f));
+                        }
                     }
                 }
                 ticksElapsed++;
