@@ -19,9 +19,6 @@ public class Pandora extends JavaPlugin {
 
         // Register commands
 
-        
-        // Load default content
-
         getLogger().info("ValBlock has been enabled!");
     }
     
