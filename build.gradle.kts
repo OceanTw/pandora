@@ -4,7 +4,7 @@ plugins {
     kotlin("jvm")
 }
 
-group = "dev.ocean.valblock"
+group = "dev.ocean.pandora"
 version = "1.0.0"
 
 repositories {
@@ -42,12 +42,11 @@ tasks {
     }
     
     shadowJar {
-        archiveBaseName.set("ValBlock")
+        archiveBaseName.set("Pandora")
         archiveClassifier.set("")
         
-        relocate("org.apache.commons.lang3", "dev.ocean.valblock.libs.commons")
-        relocate("com.google.gson", "dev.ocean.valblock.libs.gson")
-//        relocate("com.comphenix.protocol", "dev.ocean.valblock.libs.protocol")
+        relocate("org.apache.commons.lang3", "dev.ocean.pandora.libs.commons")
+        relocate("com.google.gson", "dev.ocean.pandora.libs.gson")
     }
     
     processResources {
