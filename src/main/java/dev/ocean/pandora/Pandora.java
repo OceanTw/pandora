@@ -19,13 +19,13 @@ public class Pandora extends JavaPlugin {
 
         // Register commands
 
-        getLogger().info("ValBlock has been enabled!");
+        getLogger().info("Pandora has been enabled!");
     }
     
     @Override
     public void onDisable() {
         
-        getLogger().info("ValBlock has been disabled!");
+        getLogger().info("Pandora has been disabled!");
     }
 
 }
