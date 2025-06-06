@@ -20,6 +20,7 @@ public class Pandora extends JavaPlugin {
         // Register commands
 
         getLogger().info("Pandora has been enabled!");
+
     }
     
     @Override
