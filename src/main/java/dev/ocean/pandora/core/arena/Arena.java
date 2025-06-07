@@ -1,4 +1,4 @@
-package dev.ocean.pandora.arena;
+package dev.ocean.pandora.core.arena;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

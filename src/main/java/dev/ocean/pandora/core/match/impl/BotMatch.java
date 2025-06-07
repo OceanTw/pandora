@@ -1,9 +1,9 @@
-package dev.ocean.pandora.match.impl;
+package dev.ocean.pandora.core.match.impl;
 
-import dev.ocean.pandora.arena.Arena;
-import dev.ocean.pandora.kit.Kit;
-import dev.ocean.pandora.match.Match;
-import dev.ocean.pandora.player.User;
+import dev.ocean.pandora.core.arena.Arena;
+import dev.ocean.pandora.core.kit.Kit;
+import dev.ocean.pandora.core.match.Match;
+import dev.ocean.pandora.core.player.User;
 import lombok.Getter;
 
 import java.util.List;

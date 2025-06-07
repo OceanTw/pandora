@@ -3,6 +3,7 @@ package dev.ocean.pandora;
 import dev.ocean.pandora.command.PandoraCommand;
 import dev.ocean.pandora.database.DatabaseManager;
 import dev.ocean.pandora.listener.MatchListener;
+import dev.ocean.pandora.core.lobby.LobbyManager;
 import dev.ocean.pandora.manager.*;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,6 +21,8 @@ public class Pandora extends JavaPlugin {
     private ArenaManager arenaManager;
     private KitManager kitManager;
     private BotManager botManager;
+    private QueueManager queueManager;
+    private LobbyManager lobbyManager;
 
     @Override
     public void onEnable() {
@@ -33,6 +36,8 @@ public class Pandora extends JavaPlugin {
         arenaManager = new ArenaManager(this);
         kitManager = new KitManager(this);
         botManager = new BotManager();
+        queueManager = new QueueManager(this);
+        lobbyManager = new LobbyManager(this);
 
         // Load configurations and data
         loadArenas();

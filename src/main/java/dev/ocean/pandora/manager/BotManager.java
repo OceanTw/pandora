@@ -1,9 +1,9 @@
 package dev.ocean.pandora.manager;
 
-import dev.ocean.pandora.arena.Arena;
-import dev.ocean.pandora.kit.Kit;
-import dev.ocean.pandora.match.impl.BotMatch;
-import dev.ocean.pandora.player.User;
+import dev.ocean.pandora.core.arena.Arena;
+import dev.ocean.pandora.core.kit.Kit;
+import dev.ocean.pandora.core.match.impl.BotMatch;
+import dev.ocean.pandora.core.player.User;
 import lombok.Getter;
 
 import java.util.HashMap;

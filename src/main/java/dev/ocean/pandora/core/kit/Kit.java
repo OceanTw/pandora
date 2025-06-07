@@ -1,4 +1,4 @@
-package dev.ocean.pandora.kit;
+package dev.ocean.pandora.core.kit;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

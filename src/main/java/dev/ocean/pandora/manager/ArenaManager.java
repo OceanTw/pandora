@@ -1,7 +1,7 @@
 package dev.ocean.pandora.manager;
 
 import dev.ocean.pandora.Pandora;
-import dev.ocean.pandora.arena.Arena;
+import dev.ocean.pandora.core.arena.Arena;
 import dev.ocean.pandora.config.ArenaConfig;
 import lombok.Getter;
 import org.bukkit.Bukkit;

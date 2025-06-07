@@ -2,13 +2,12 @@ package dev.ocean.pandora.manager;
 
 import dev.ocean.pandora.Pandora;
 import dev.ocean.pandora.config.KitConfig;
-import dev.ocean.pandora.kit.Kit;
+import dev.ocean.pandora.core.kit.Kit;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.Color;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionType;

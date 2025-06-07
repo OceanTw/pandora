@@ -1,6 +1,6 @@
 package dev.ocean.pandora.manager;
 
-import dev.ocean.pandora.player.User;
+import dev.ocean.pandora.core.player.User;
 import lombok.Getter;
 
 import java.util.HashMap;

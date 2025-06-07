@@ -2,7 +2,8 @@ package dev.ocean.pandora.listener;
 
 import dev.ocean.pandora.Pandora;
 import dev.ocean.pandora.manager.UserManager;
-import dev.ocean.pandora.player.User;
+import dev.ocean.pandora.core.player.User;
+import dev.ocean.pandora.core.player.UserStatus;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,7 +23,13 @@ public class MatchListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        userManager.getUser(player.getUniqueId());
+        User user = userManager.getUser(player.getUniqueId());
+
+        // Set player status to lobby and give items
+        user.setStatus(UserStatus.IN_LOBBY);
+        plugin.getLobbyManager().giveItems(player);
+
+        // TODO: Teleport to spawn location when implemented
     }
 
     @EventHandler
@@ -34,7 +41,11 @@ public class MatchListener implements Listener {
             plugin.getMatchManager().endMatch(user.getCurrentMatch().getUuid());
         }
 
-        plugin.getMatchManager().leaveQueue(user);
+        // Remove from queue if in queue
+        if (user.getStatus() == UserStatus.IN_QUEUE) {
+            plugin.getQueueManager().leaveQueue(user);
+        }
+
         userManager.removeUser(player.getUniqueId());
     }
 

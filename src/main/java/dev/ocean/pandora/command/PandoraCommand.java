@@ -1,9 +1,9 @@
 package dev.ocean.pandora.command;
 
 import dev.ocean.pandora.Pandora;
-import dev.ocean.pandora.arena.Arena;
-import dev.ocean.pandora.kit.Kit;
-import dev.ocean.pandora.player.User;
+import dev.ocean.pandora.core.arena.Arena;
+import dev.ocean.pandora.core.kit.Kit;
+import dev.ocean.pandora.core.player.User;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
