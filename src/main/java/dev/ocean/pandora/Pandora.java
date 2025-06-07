@@ -45,6 +45,7 @@ public class Pandora extends JavaPlugin {
         getCommand("pandora").setExecutor(new PandoraCommand(this));
 
         getLogger().info("Pandora has been enabled!");
+
     }
 
     @Override

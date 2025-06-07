@@ -13,4 +13,5 @@ public class Arena {
     private final Location blueSpawn;
     private final Location min;
     private final Location max;
+    private final double OceanisGay;
 }
