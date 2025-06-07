@@ -1,0 +1,108 @@
+# Pandora PvP Practice Plugin Kits Configuration
+
+kits:
+  nodebuff:
+    display-name: "&cNoDebuff"
+    icon: "GOLDEN_APPLE"
+    rules:
+      - "BUILD"
+    items:
+      helmet:
+        material: "DIAMOND_HELMET"
+        enchantments:
+          protection: 1
+          unbreaking: 3
+      chestplate:
+        material: "DIAMOND_CHESTPLATE"
+        enchantments:
+          protection: 1
+          unbreaking: 3
+      leggings:
+        material: "DIAMOND_LEGGINGS"
+        enchantments:
+          protection: 1
+          unbreaking: 3
+      boots:
+        material: "DIAMOND_BOOTS"
+        enchantments:
+          protection: 1
+          unbreaking: 3
+      sword:
+        material: "DIAMOND_SWORD"
+        enchantments:
+          sharpness: 1
+          unbreaking: 3
+      inventory:
+        - material: "GOLDEN_APPLE"
+          amount: 64
+        - material: "SPLASH_POTION"
+          amount: 36
+          potion-type: "INSTANT_HEAL_II"
+
+  boxing:
+    display-name: "&eBoxing"
+    icon: "LEATHER_CHESTPLATE"
+    rules:
+      - "BOXING"
+      - "BOT"
+    items:
+      chestplate:
+        material: "LEATHER_CHESTPLATE"
+        color: "RED"
+      leggings:
+        material: "LEATHER_LEGGINGS"
+        color: "RED"
+      boots:
+        material: "LEATHER_BOOTS"
+        color: "RED"
+
+  sumo:
+    display-name: "&6Sumo"
+    icon: "STICK"
+    rules:
+      - "BOT"
+    items:
+      weapon:
+        material: "STICK"
+        enchantments:
+          knockback: 1
+
+  build:
+    display-name: "&aBuild UHC"
+    icon: "COBBLESTONE"
+    rules:
+      - "BUILD"
+      - "BOT"
+    items:
+      helmet:
+        material: "DIAMOND_HELMET"
+        enchantments:
+          protection: 2
+      chestplate:
+        material: "DIAMOND_CHESTPLATE"
+        enchantments:
+          protection: 2
+      leggings:
+        material: "DIAMOND_LEGGINGS"
+        enchantments:
+          protection: 2
+      boots:
+        material: "DIAMOND_BOOTS"
+        enchantments:
+          protection: 2
+      sword:
+        material: "DIAMOND_SWORD"
+        enchantments:
+          sharpness: 3
+      bow:
+        material: "BOW"
+        enchantments:
+          power: 3
+          punch: 1
+      inventory:
+        - material: "GOLDEN_APPLE"
+          amount: 5
+        - material: "COBBLESTONE"
+          amount: 64
+        - material: "ARROW"
+          amount: 64

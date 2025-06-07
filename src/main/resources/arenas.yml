@@ -1,0 +1,29 @@
+# Pandora PvP Practice Plugin Arenas Configuration
+
+arenas:
+  classic:
+    display-name: "&eClassic Arena"
+    red-spawn:
+      world: "world"
+      x: 0.5
+      y: 65.0
+      z: -10.5
+      yaw: 0.0
+      pitch: 0.0
+    blue-spawn:
+      world: "world"
+      x: 0.5
+      y: 65.0
+      z: 10.5
+      yaw: 180.0
+      pitch: 0.0
+    min:
+      world: "world"
+      x: -15
+      y: 50
+      z: -15
+    max:
+      world: "world"
+      x: 15
+      y: 80
+      z: 15

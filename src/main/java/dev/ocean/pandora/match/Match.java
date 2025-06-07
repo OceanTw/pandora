@@ -3,10 +3,12 @@ package dev.ocean.pandora.match;
 import dev.ocean.pandora.arena.Arena;
 import dev.ocean.pandora.kit.Kit;
 import dev.ocean.pandora.player.User;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.UUID;
 
+@Getter
 public abstract class Match {
     private final UUID uuid;
     private final Kit kit;
