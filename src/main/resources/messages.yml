@@ -1,0 +1,50 @@
+# Pandora PvP Practice Plugin Messages
+
+# General messages
+general:
+  prefix: "&8[&6Pandora&8] &r"
+  no-permission: "&cYou don't have permission to use this command!"
+  player-only: "&cThis command can only be used by players!"
+  player-not-found: "&cPlayer not found!"
+  invalid-usage: "&cInvalid usage! Use: {usage}"
+
+# Queue messages
+queue:
+  joined: "&aYou have joined the queue for &e{kit}&a!"
+  left: "&eYou have left the queue!"
+  already-queued: "&cYou are already in a queue!"
+  match-found: "&aMatch found! Teleporting to arena..."
+  no-arenas: "&cNo arenas available for this kit!"
+
+# Match messages
+match:
+  starting: "&aMatch starting in &e{seconds}&a seconds!"
+  started: "&aMatch has started!"
+  ended: "&eMatch ended!"
+  winner: "&a{winner} &awon the match!"
+  draw: "&eThe match ended in a draw!"
+  left: "&eYou have left the match!"
+  already-in-match: "&cYou are already in a match!"
+  not-in-match: "&cYou are not in a match!"
+
+# Stats messages
+stats:
+  header: "&6=== Stats for {player} ==="
+  wins: "&aWins: &f{wins}"
+  losses: "&cLosses: &f{losses}"
+  kd-ratio: "&eK/D Ratio: &f{ratio}"
+  win-rate: "&bWin Rate: &f{rate}%"
+  elo: "&dELO: &f{elo}"
+  streak: "&6Streak: &f{streak}"
+
+# Bot messages
+bot:
+  match-created: "&aBot match created! Fighting against &e{bot}&a!"
+  no-bot-kits: "&cNo bot-enabled kits available!"
+
+# Error messages
+error:
+  kit-not-found: "&cKit '{kit}' not found!"
+  arena-not-found: "&cArena '{arena}' not found!"
+  database-error: "&cDatabase error occurred!"
+  match-error: "&cAn error occurred during the match!"

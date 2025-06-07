@@ -5,3 +5,5 @@ api-version: 1.21
 author: [Ocean, cep]
 description: Minecraft PvP Practice Plugin
 depend: [packetevents]
+commands:
+  pandora:

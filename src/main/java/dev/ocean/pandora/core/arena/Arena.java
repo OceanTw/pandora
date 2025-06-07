@@ -1,4 +1,4 @@
-package dev.ocean.pandora.arena;
+package dev.ocean.pandora.core.arena;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,5 +13,5 @@ public class Arena {
     private final Location blueSpawn;
     private final Location min;
     private final Location max;
-    private final double OceanisGay;
+    private final double buildLimit;
 }

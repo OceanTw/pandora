@@ -20,6 +20,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("com.github.retrooper:packetevents-spigot:2.8.0")
+    implementation("de.exlll:configlib-yaml:4.6.1")
 
     // Lombok
     compileOnly("org.projectlombok:lombok:1.18.38")

@@ -1,0 +1,46 @@
+# Pandora PvP Practice Plugin Configuration
+
+# Database settings
+database:
+  # Options: sqlite, mysql
+  type: "sqlite"
+  url: "jdbc:sqlite:plugins/Pandora/database.db"
+  username: ""
+  password: ""
+
+# Match settings
+match:
+  # Time limit in seconds (0 = no limit)
+  time-limit: 300
+  # Allow spectating matches
+  allow-spectating: true
+  # Auto-start matches when players are found
+  auto-start: true
+  # Teleport players back to spawn after match
+  teleport-after-match: true
+
+# Queue settings
+queue:
+  # Maximum queue time in seconds before auto-match with bot
+  max-queue-time: 60
+  # Enable bot matches when no players available
+  enable-bot-matches: true
+
+# Bot settings
+bot:
+  # Default bot difficulty (1-4)
+  default-difficulty: 2
+  # Bot names pool
+  names:
+    - "PvPBot"
+    - "TrainingBot"
+    - "SparringBot"
+    - "ChallengeBot"
+    - "DuelBot"
+
+# General settings
+general:
+  # Plugin prefix for messages
+  prefix: "&8[&6Pandora&8] &r"
+  # Enable debug mode
+  debug: false
