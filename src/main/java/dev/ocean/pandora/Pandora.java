@@ -25,16 +25,16 @@ public class Pandora extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        // Initialize managers
+        // Initialize managers in proper order
         configManager = new ConfigManager(this);
         databaseManager = new DatabaseManager(this, configManager);
         userManager = new UserManager();
         matchManager = new MatchManager();
-        arenaManager = new ArenaManager();
-        kitManager = new KitManager();
+        arenaManager = new ArenaManager(this);
+        kitManager = new KitManager(this);
         botManager = new BotManager();
 
-        // Load configurations
+        // Load configurations and data
         loadArenas();
         loadKits();
 
@@ -45,25 +45,52 @@ public class Pandora extends JavaPlugin {
         getCommand("pandora").setExecutor(new PandoraCommand(this));
 
         getLogger().info("Pandora has been enabled!");
-
     }
 
     @Override
     public void onDisable() {
+        // Save any pending data
+        if (configManager != null) {
+            configManager.saveConfigs();
+        }
+
+        // Disconnect database
         if (databaseManager != null) {
             databaseManager.disconnect();
+        }
+
+        // End all active matches
+        if (matchManager != null) {
+            matchManager.getActiveMatches().forEach(match -> {
+                match.end();
+                match.cleanup();
+            });
         }
 
         getLogger().info("Pandora has been disabled!");
     }
 
     private void loadArenas() {
-        // Load arenas from config - implementation depends on your config structure
-        getLogger().info("Loaded arenas from configuration");
+        try {
+            arenaManager.loadArenasFromConfig();
+
+            if (arenaManager.getArenas().isEmpty()) {
+                getLogger().warning("No arenas loaded! Please configure arenas in arenas.yml");
+            }
+        } catch (Exception e) {
+            getLogger().severe("Failed to load arenas: " + e.getMessage());
+        }
     }
 
     private void loadKits() {
-        // Load kits from config - implementation depends on your config structure
-        getLogger().info("Loaded kits from configuration");
+        try {
+            kitManager.loadKitsFromConfig();
+
+            if (kitManager.getKits().isEmpty()) {
+                getLogger().warning("No kits loaded! Please configure kits in kits.yml");
+            }
+        } catch (Exception e) {
+            getLogger().severe("Failed to load kits: " + e.getMessage());
+        }
     }
 }
