@@ -1,2 +1,2 @@
 # Pandora
-## A minecraft PVP plugin.
+## A minecraft PVP Practice plugin.
