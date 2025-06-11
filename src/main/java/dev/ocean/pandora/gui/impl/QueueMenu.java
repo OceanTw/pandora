@@ -57,7 +57,7 @@ public class QueueMenu extends Menu {
     }
 
     private void fillBorders(Inventory inventory) {
-        ItemStack borderItem = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1, (short) 15);
+        ItemStack borderItem = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta meta = borderItem.getItemMeta();
         meta.setDisplayName(" ");
         borderItem.setItemMeta(meta);
@@ -110,9 +110,7 @@ public class QueueMenu extends Menu {
     }
 
     private int countPlayersInQueue(Kit kit) {
-        // This would need to be implemented based on your queue system
-        // For now, return 0
-        return 0;
+        return Pandora.getInstance().getQueueManager().getQueueSize(kit, ranked);
     }
 
     private int countPlayersPlaying(Kit kit) {

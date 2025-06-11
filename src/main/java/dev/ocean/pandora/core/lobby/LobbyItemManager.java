@@ -42,9 +42,10 @@ public class LobbyItemManager {
     }
 
     public ItemStack getSettingsItem(Player player) {
-        ItemStack item = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        // Use PLAYER_HEAD for modern versions
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta skullMeta = (SkullMeta) item.getItemMeta();
-        skullMeta.setOwner(player.getName());
+        skullMeta.setOwningPlayer(player);
         skullMeta.setDisplayName(settingsName);
         item.setItemMeta(skullMeta);
         return item;

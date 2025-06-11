@@ -6,6 +6,7 @@ import dev.ocean.pandora.core.match.Match;
 import dev.ocean.pandora.core.match.impl.OneVersusOneMatch;
 import dev.ocean.pandora.core.match.impl.BotMatch;
 import dev.ocean.pandora.core.player.User;
+import dev.ocean.pandora.core.player.UserStatus;
 import lombok.Getter;
 
 import java.util.*;
@@ -13,14 +14,20 @@ import java.util.*;
 @Getter
 public class MatchManager {
     private final Map<UUID, Match> matches = new HashMap<>();
-    private final Map<Kit, Queue<User>> kitQueues = new HashMap<>();
 
     public Match createMatch(Kit kit, Arena arena, List<User> red, List<User> blue) {
         Match match = new OneVersusOneMatch(kit, arena, red, blue);
         matches.put(match.getUuid(), match);
 
-        red.forEach(user -> user.setCurrentMatch(match));
-        blue.forEach(user -> user.setCurrentMatch(match));
+        // Update user statuses
+        red.forEach(user -> {
+            user.setCurrentMatch(match);
+            user.setStatus(UserStatus.IN_MATCH);
+        });
+        blue.forEach(user -> {
+            user.setCurrentMatch(match);
+            user.setStatus(UserStatus.IN_MATCH);
+        });
 
         match.start();
         return match;
@@ -32,37 +39,21 @@ public class MatchManager {
             match.end();
             match.cleanup();
 
-            getAllUsers(match).forEach(user -> user.setCurrentMatch(null));
+            // Reset user statuses
+            getAllUsers(match).forEach(user -> {
+                user.setCurrentMatch(null);
+                user.setStatus(UserStatus.IN_LOBBY);
+            });
         }
-    }
-
-    public void joinQueue(User user, Kit kit) {
-        Queue<User> queue = kitQueues.computeIfAbsent(kit, k -> new LinkedList<>());
-        queue.offer(user);
-    }
-
-    public void leaveQueue(User user) {
-        kitQueues.values().forEach(queue -> queue.remove(user));
-    }
-
-    public boolean tryMatchmaking(Kit kit, Arena arena) {
-        Queue<User> queue = kitQueues.get(kit);
-        if (queue != null && queue.size() >= 2) {
-            User user1 = queue.poll();
-            User user2 = queue.poll();
-
-            if (user1 != null && user2 != null) {
-                createMatch(kit, arena, Arrays.asList(user1), Arrays.asList(user2));
-                return true;
-            }
-        }
-        return false;
     }
 
     public Match createBotMatch(Kit kit, Arena arena, User player, String botName) {
         BotMatch match = new BotMatch(kit, arena, List.of(player), botName, 1);
         matches.put(match.getUuid(), match);
+
         player.setCurrentMatch(match);
+        player.setStatus(UserStatus.IN_MATCH);
+
         match.start();
         return match;
     }

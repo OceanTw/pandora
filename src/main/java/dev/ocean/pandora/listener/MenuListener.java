@@ -28,13 +28,13 @@ public class MenuListener implements Listener {
             return;
         }
 
-        String inventoryTitle = event.getInventory().getTitle();
+        String inventoryTitle = event.getView().getTitle();
 
         // Handle queue menu clicks
         if (inventoryTitle.equals("Unranked Queue") || inventoryTitle.equals("Ranked Queue")) {
             event.setCancelled(true);
 
-            if (event.getCurrentItem().getType() == Material.STAINED_GLASS_PANE) {
+            if (event.getCurrentItem().getType() == Material.GRAY_STAINED_GLASS_PANE) {
                 return;
             }
 
@@ -43,7 +43,7 @@ public class MenuListener implements Listener {
                 return;
             }
 
-            // Extract kit name from display name
+            // Extract kit name from display name (remove colors and formatting)
             String kitDisplayName = ChatColor.stripColor(displayName);
             Kit kit = findKitByDisplayName(kitDisplayName);
 
@@ -71,17 +71,6 @@ public class MenuListener implements Listener {
     }
 
     private void joinQueue(Player player, User user, Kit kit, boolean ranked) {
-        // TODO: Implement actual queue joining logic
-        user.setStatus(UserStatus.IN_QUEUE);
-        plugin.getLobbyManager().giveItems(player);
-
-        String queueType = ranked ? "ranked" : "unranked";
-        player.sendMessage(StringUtils.handle("&aYou have joined the " + queueType + " queue for &b" + kit.getDisplayName() + "&a!"));
-
-        // TODO: Start matchmaking logic here
-        // This would involve:
-        // 1. Adding player to queue for this kit
-        // 2. Looking for other players in queue
-        // 3. Creating matches when suitable opponents are found
+        plugin.getQueueManager().joinQueue(user, kit, ranked);
     }
 }
